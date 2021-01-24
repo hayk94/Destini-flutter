@@ -36,15 +36,15 @@ class StoryBrain {
   ];
 
   String getStory() {
-    return _storyData.first.storyTitle;
+    return _storyData[_storyNumber].storyTitle;
   }
 
   String getChoice1() {
-    return _storyData.first.choice1;
+    return _storyData[_storyNumber].choice1;
   }
 
   String getChoice2() {
-    return _storyData.first.choice2;
+    return _storyData[_storyNumber].choice2;
   }
 
   void nextStory(int choiceNumber) {
@@ -76,7 +76,18 @@ class StoryBrain {
           }
         }
         break;
+      case 3:
+      case 4:
+      case 5:
+        {
+          restart();
+        }
+        break;
     }
+  }
+
+  void restart() {
+    _storyNumber = 0;
   }
 }
 
