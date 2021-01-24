@@ -1,6 +1,8 @@
 import 'story.dart';
 
 class StoryBrain {
+  int _storyNumber = 0;
+
   List<Story> _storyData = [
     Story(
         storyTitle:
@@ -44,13 +46,43 @@ class StoryBrain {
   String getChoice2() {
     return _storyData.first.choice2;
   }
+
+  void nextStory(int choiceNumber) {
+    switch (_storyNumber) {
+      case 0:
+        {
+          if (choiceNumber == 1) {
+            _storyNumber = 2;
+          } else {
+            _storyNumber = 1;
+          }
+        }
+        break;
+      case 1:
+        {
+          if (choiceNumber == 1) {
+            _storyNumber = 2;
+          } else {
+            _storyNumber = 3;
+          }
+        }
+        break;
+      case 2:
+        {
+          if (choiceNumber == 1) {
+            _storyNumber = 5;
+          } else {
+            _storyNumber = 4;
+          }
+        }
+        break;
+    }
+  }
 }
 
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
 
 //TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
-
-//TODO: Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
 
 //TODO: Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
 
